@@ -1,17 +1,9 @@
 # https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/
 # http://docs.python-requests.org
 import requests
-from requests.auth import HTTPBasicAuth
 import json
 
-url = "https://incident-integration-test.atlassian.net/rest/api/3/issue"
-
-auth = HTTPBasicAuth("incident.integration.test@gmail.com", "JpVFJgi5Gq3TumSE20AiE590")
-
-headers = {
-    "Accept": "application/json",
-    "Content-Type": "application/json"
-}
+from conf import jira_conf
 
 payload = json.dumps({
     "update": {},
@@ -28,10 +20,10 @@ payload = json.dumps({
 
 response = requests.request(
     "POST",
-    url,
+    jira_conf.url,
     data=payload,
-    headers=headers,
-    auth=auth
+    headers=jira_conf.headers,
+    auth=jira_conf.auth
 )
 
 print(json.dumps(json.loads(response.text), sort_keys=True, indent=4, separators=(",", ": ")))

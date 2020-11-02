@@ -1,4 +1,7 @@
 /venv/
+/.idea/
 log/*
 !log/.gitkeep
-/.idea/
+conf/*
+!conf/.gitkeep
+!conf/*_example.py
