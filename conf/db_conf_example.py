@@ -1,0 +1,5 @@
+host = "<database_host>"
+name = "<user_name>"
+password = "<password>"
+db_name = "<database_name>"
+db_table_name = "<database_table>"

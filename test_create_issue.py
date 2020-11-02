@@ -1,5 +1,5 @@
 from datetime import datetime
-from lib.jira.Issue import Issue
+from lib.JiraIssue import JiraIssue
 
 data = {
     "update": {},
@@ -14,5 +14,5 @@ data = {
     }
 }
 
-i1 = Issue()
+i1 = JiraIssue()
 print(i1.create_issue(data))
