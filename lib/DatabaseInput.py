@@ -35,7 +35,5 @@ class DatabaseInput:
         mycursor.execute("SELECT * FROM "+self.db_name+"."+self.db_table_name)
 
         myresult = mycursor.fetchall()
+        return myresult
 
-        for x in myresult:
-            # TODO: return value
-            print(x)
