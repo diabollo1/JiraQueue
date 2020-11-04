@@ -40,8 +40,19 @@ class DatabaseInput:
     def get_issue_to_create_list(self):
         mycursor = self.connection.cursor()
 
-        mycursor.execute("SELECT * FROM "+self.db_name+"."+self.db_table_name+" WHERE date_adding_issue is null")
+        mycursor.execute("SELECT * FROM "+self.db_name+"."+self.db_table_name+" WHERE issue_date_adding is null")
 
         myresult = mycursor.fetchall()
         return myresult
+
+    def set_data_issue(self, list_db_id, create_issue_output):
+        mycursor = self.connection.cursor()
+        # TODO: complete the rest fields (issue_id,issue_key,issue_url) = create_issue_output
+        sql = "UPDATE " + self.db_name + "." + self.db_table_name + \
+              " SET issue_date_adding = CURRENT_TIMESTAMP WHERE id in (" + list_db_id + ")"
+        print(sql)
+        mycursor.execute(sql)
+
+        self.connection.commit()
+        return mycursor.rowcount, "record(s) affected"
 
