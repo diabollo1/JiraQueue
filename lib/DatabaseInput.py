@@ -37,3 +37,11 @@ class DatabaseInput:
         myresult = mycursor.fetchall()
         return myresult
 
+    def get_issue_to_create_list(self):
+        mycursor = self.connection.cursor()
+
+        mycursor.execute("SELECT * FROM "+self.db_name+"."+self.db_table_name+" WHERE date_adding_issue is null")
+
+        myresult = mycursor.fetchall()
+        return myresult
+
