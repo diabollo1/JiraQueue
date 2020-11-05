@@ -22,7 +22,9 @@ try:
     create_issue_output = i1.create_issue(data["json"])
     print(create_issue_output)
 
-    print(db.set_data_issue(data["id"], create_issue_output))
+    print(db.set_data_issue(data["id"],create_issue_output))
 
+except ResourceWarning as e:
+    print("It looks ok but: " + str(e))
 except Exception as e:
     print("The error occurred: " + __name__ + ":" + str(sys.exc_info()[2].tb_lineno) + "|" + str(e))

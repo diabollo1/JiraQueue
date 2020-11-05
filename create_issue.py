@@ -1,7 +1,6 @@
-# https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issues/
-# http://docs.python-requests.org
-import requests
 import json
+
+import requests
 
 from conf import jira_conf
 

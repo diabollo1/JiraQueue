@@ -1,6 +1,7 @@
+import json
+
 import requests
 from requests.auth import HTTPBasicAuth
-import json
 
 url = "https://incident-integration-test.atlassian.net/rest/api/3/issue"
 

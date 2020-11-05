@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from lib.JiraIssue import JiraIssue
 
 data = {
