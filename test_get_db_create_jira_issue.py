@@ -9,12 +9,10 @@ try:
 
     print(issues)
 
-    data = {"id": "", "json": {"issueUpdates": []}}
+    data = {"id": [], "json": {"issueUpdates": []}}
     for issue in issues:
-        data["id"] += str(issue[0]) + ","
+        data["id"].append(issue[0])
         data["json"]["issueUpdates"].append(eval(issue[3]))
-
-    data["id"] = data["id"].rstrip(',')
 
     print(data)
 
@@ -22,7 +20,7 @@ try:
     create_issue_output = i1.create_issue(data["json"])
     print(create_issue_output)
 
-    print(db.set_data_issue(data["id"],create_issue_output))
+    print(db.set_data_issue(data["id"], create_issue_output))
 
 except ResourceWarning as e:
     print("It looks ok but: " + str(e))
