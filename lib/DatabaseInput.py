@@ -63,8 +63,6 @@ class DatabaseInput:
 
     def set_data_issue(self, list_db_id, create_issue_output):
         try:
-            # TODO: complete the rest fields (issue_id,issue_key,issue_url) = create_issue_output
-            # issue_id, issue_key, issue_url
             sql = ""
             i = 0
             for issue_details in json.loads(create_issue_output)["issues"]:
